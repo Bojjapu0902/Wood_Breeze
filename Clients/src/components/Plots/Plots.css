@@ -1,0 +1,414 @@
+/* ============================================================
+   PLOTS — Available plot inventory (reference image04 style)
+   ============================================================ */
+
+.plots {
+  overflow: hidden;
+}
+
+/* ── Photo band ─────────────────────────────────────────────── */
+.plots__photo-band {
+  width: 100%;
+  height: clamp(220px, 36vw, 460px);
+  position: relative;
+  overflow: hidden;
+  background: var(--color-forest-deep);
+}
+
+.plots__photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
+.plots__photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 24, 10, 0.22) 0%,
+    rgba(10, 24, 10, 0.12) 50%,
+    rgba(245, 241, 232, 1) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Section intro ──────────────────────────────────────────── */
+.plots__intro {
+  text-align: center;
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: 2rem;
+}
+
+.plots__eyebrow {
+  margin-bottom: 0.75rem;
+}
+
+.plots__heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-forest);
+  line-height: var(--lh-tight);
+  margin-bottom: 1rem;
+}
+
+.plots__subhead {
+  font-family: var(--font-serif);
+  font-size: var(--fs-md);
+  font-style: italic;
+  font-weight: var(--fw-light);
+  color: var(--color-brown-mid);
+  max-width: 500px;
+  margin-inline: auto;
+  line-height: var(--lh-relaxed);
+}
+
+/* ── Filter tabs ────────────────────────────────────────────── */
+.plots__filters {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-beige);
+}
+
+.plots__filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-brown-light);
+  background: transparent;
+  border: 1px solid var(--color-beige);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.plots__filter-btn:hover {
+  border-color: var(--color-brown-light);
+  color: var(--color-brown-deep);
+}
+
+.plots__filter-btn--active {
+  background: var(--color-forest-deep);
+  border-color: var(--color-forest-deep);
+  color: var(--color-cream);
+}
+
+.plots__filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  font-size: 0.6rem;
+}
+
+.plots__filter-btn--active .plots__filter-count {
+  background: rgba(201,168,76,0.25);
+  color: var(--color-gold-light);
+}
+
+/* ── Cards grid ─────────────────────────────────────────────── */
+.plots__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* ── Individual card ────────────────────────────────────────── */
+.plots__card {
+  background: var(--color-cream);
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition:
+    box-shadow var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+}
+
+.plots__card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--color-gold-light);
+}
+
+.plots__card--sold {
+  opacity: 0.62;
+  pointer-events: none;
+}
+
+/* Card header row */
+.plots__card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem 0.75rem;
+  border-bottom: 1px solid var(--color-beige);
+}
+
+.plots__card-number {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-brown-deep);
+}
+
+/* Status badge */
+.plots__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 2rem;
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+}
+
+.plots__badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.plots__badge--available {
+  background: rgba(40, 120, 60, 0.1);
+  color: #1E6B38;
+}
+.plots__badge--available .plots__badge-dot { background: #2E9E52; }
+
+.plots__badge--reserved {
+  background: rgba(201, 168, 76, 0.14);
+  color: #8A6A12;
+}
+.plots__badge--reserved .plots__badge-dot { background: var(--color-gold); }
+
+.plots__badge--sold {
+  background: rgba(120, 80, 60, 0.1);
+  color: #7B4832;
+}
+.plots__badge--sold .plots__badge-dot { background: #A0603D; }
+
+/* Download button */
+.plots__download {
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-beige);
+  border-radius: var(--radius-sm);
+  color: var(--color-brown-light);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.plots__download:hover {
+  border-color: var(--color-forest);
+  color: var(--color-forest);
+}
+
+/* SVG plan area */
+.plots__plan {
+  padding: 1.5rem 2rem 0.75rem;
+  background: var(--color-parchment);
+  border-bottom: 1px solid var(--color-beige);
+}
+
+.plots__svg {
+  width: 100%;
+  max-height: 200px;
+  display: block;
+}
+
+/* Specs grid — 3 columns × 2 rows */
+.plots__specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--color-beige);
+}
+
+.plots__spec {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.875rem 1.25rem;
+  border-right: 1px solid var(--color-beige);
+  border-bottom: 1px solid var(--color-beige);
+}
+
+.plots__spec:nth-child(3n) {
+  border-right: none;
+}
+
+.plots__spec:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.plots__spec-label {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-brown-light);
+}
+
+.plots__spec-value {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-brown-deep);
+  line-height: 1.3;
+}
+
+.plots__spec-value--green {
+  color: #1E6B38;
+}
+
+/* Price row */
+.plots__price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  gap: 1rem;
+}
+
+.plots__price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.plots__price-label {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-brown-light);
+}
+
+.plots__price {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: var(--fw-bold);
+  color: var(--color-brown-deep);
+  line-height: 1.1;
+}
+
+.plots__rate {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: var(--ls-wide);
+  color: var(--color-brown-light);
+}
+
+.plots__more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-forest);
+  text-decoration: none;
+  transition: gap var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.plots__more-link:hover {
+  gap: 0.625rem;
+  color: var(--color-gold);
+}
+
+/* ── Bottom CTA row ─────────────────────────────────────────── */
+.plots__cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--color-beige);
+}
+
+.plots__cta-note {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  letter-spacing: var(--ls-wide);
+  color: var(--color-brown-light);
+  text-transform: uppercase;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .plots__grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin-inline: auto;
+  }
+
+  .plots__cta-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .plots__specs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plots__spec:nth-child(3n) {
+    border-right: 1px solid var(--color-beige);
+  }
+
+  .plots__spec:nth-child(2n) {
+    border-right: none;
+  }
+
+  .plots__spec:nth-last-child(-n+3) {
+    border-bottom: 1px solid var(--color-beige);
+  }
+
+  .plots__spec:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .plots__filters {
+    flex-wrap: wrap;
+  }
+}

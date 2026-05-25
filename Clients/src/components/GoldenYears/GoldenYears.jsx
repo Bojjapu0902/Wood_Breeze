@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { PerchedBird, BirdDivider, BirdSilhouette } from '../../design-system/Birds';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import {
+  IconSun, IconUsers, IconWind, IconMoon, IconHome, IconHeart,
+} from '../../design-system/LineIcons';
 import './GoldenYears.css';
 
 const MOMENTS = [
-  { icon: '🌅', label: 'Morning walks',        desc: 'Greet every sunrise on dew-kissed pathways lined with trees.' },
-  { icon: '👨‍👩‍👧‍👦', label: "Grandchildren's laughter", desc: 'Open spaces where their joy echoes through clean, fresh air.' },
-  { icon: '🍃', label: 'Breathing free',        desc: 'Away from city dust — only nature\'s scent and birdsong.' },
-  { icon: '🕊️', label: 'Quiet evenings',        desc: 'Sit on your own terrace watching birds come home to roost.' },
-  { icon: '🏡', label: 'Your own home',         desc: 'A space built to your taste — no compromises, finally.' },
-  { icon: '❤️', label: 'Health & wellbeing',    desc: 'Vaastu-aligned plots, green surroundings — body and soul at rest.' },
+  { Icon: IconSun,   label: 'Morning walks',           desc: 'Greet every sunrise on dew-kissed pathways lined with trees.' },
+  { Icon: IconUsers, label: "Grandchildren's laughter", desc: 'Open spaces where their joy echoes through clean, fresh air.' },
+  { Icon: IconWind,  label: 'Breathing free',           desc: "Away from city dust — only nature's scent and birdsong." },
+  { Icon: IconMoon,  label: 'Quiet evenings',           desc: 'Sit on your own terrace watching birds come home to roost.' },
+  { Icon: IconHome,  label: 'Your own home',            desc: 'A space built to your taste — no compromises, finally.' },
+  { Icon: IconHeart, label: 'Health & wellbeing',       desc: 'Vaastu-aligned plots, green surroundings — body and soul at rest.' },
 ];
 
 export default function GoldenYears() {
@@ -71,7 +74,7 @@ export default function GoldenYears() {
 
             {/* Floating trust chip top-right */}
             <div className="golden__photo-chip" aria-hidden="true">
-              <span className="golden__photo-chip-icon">🏡</span>
+              <span className="golden__photo-chip-icon"><IconHome size={18} /></span>
               <div>
                 <div className="golden__photo-chip-value">100%</div>
                 <div className="golden__photo-chip-label">Vaastu Compliant</div>
@@ -121,13 +124,13 @@ export default function GoldenYears() {
 
           {/* Moments grid */}
           <div className="golden__moments" role="list">
-            {MOMENTS.map(({ icon, label, desc }, i) => (
+            {MOMENTS.map(({ Icon, label, desc }, i) => (
               <div
                 key={label}
                 className={`golden__moment reveal reveal--delay-${(i % 3) + 1}`}
                 role="listitem"
               >
-                <span className="golden__moment-icon" aria-hidden="true">{icon}</span>
+                <span className="golden__moment-icon" aria-hidden="true"><Icon size={22} /></span>
                 <div>
                   <div className="golden__moment-label">{label}</div>
                   <div className="golden__moment-desc">{desc}</div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BirdFlock, BirdDivider } from '../../design-system/Birds';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { IconPhone, IconMail, IconMapPin } from '../../design-system/LineIcons';
 import './Contact.css';
 
 const VISIT_SLOTS = ['Weekday Morning', 'Weekday Afternoon', 'Weekend Morning', 'Weekend Afternoon'];
@@ -65,21 +66,21 @@ export default function Contact() {
 
             <div className="contact__details">
               <div className="contact__detail">
-                <span className="contact__detail-icon" aria-hidden="true">📞</span>
+                <span className="contact__detail-icon" aria-hidden="true"><IconPhone size={18} /></span>
                 <div>
                   <div className="contact__detail-label">Phone</div>
                   <a href="tel:+917661955553" className="contact__detail-value">+91 76619 55553</a>
                 </div>
               </div>
               <div className="contact__detail">
-                <span className="contact__detail-icon" aria-hidden="true">✉️</span>
+                <span className="contact__detail-icon" aria-hidden="true"><IconMail size={18} /></span>
                 <div>
                   <div className="contact__detail-label">Email</div>
                   <a href="mailto:info@woodbreeze.in" className="contact__detail-value">info@woodbreeze.in</a>
                 </div>
               </div>
               <div className="contact__detail">
-                <span className="contact__detail-icon" aria-hidden="true">📍</span>
+                <span className="contact__detail-icon" aria-hidden="true"><IconMapPin size={18} /></span>
                 <div>
                   <div className="contact__detail-label">Office</div>
                   <div className="contact__detail-value contact__detail-value--small">

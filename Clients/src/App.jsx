@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import './styles/globals.css';
 
+import Loader        from './components/Loader/Loader';
 import Navbar        from './components/Navbar/Navbar';
 import Hero          from './components/Hero/Hero';
 import About         from './components/About/About';
 import Stats         from './components/Stats/Stats';
 import Amenities     from './components/Amenities/Amenities';
+import Plots         from './components/Plots/Plots';
 import Connectivity  from './components/Connectivity/Connectivity';
 import Gallery       from './components/Gallery/Gallery';
 import Testimonials  from './components/Testimonials/Testimonials';
@@ -72,6 +74,8 @@ function BackToTop() {
 export default function App() {
   return (
     <>
+      <Loader />
+
       <a href="#hero" className="sr-only" style={{ position:'absolute', top:0, left:0 }}>
         Skip to main content
       </a>
@@ -82,6 +86,7 @@ export default function App() {
         <Hero />
         <About />
         <Stats />
+        <Plots />
         <Amenities />
         <Connectivity />
         <Gallery />

@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { BrandMark } from '../../design-system/Birds';
+
 import './Navbar.css';
+
+const Logo = '/Asserts/images/Logo.webp';
 
 const NAV_LINKS = [
   { label: 'Home',        href: '#hero' },
   { label: 'About',       href: '#about' },
+  { label: 'Plots',       href: '#plots' },
   { label: 'Amenities',   href: '#amenities' },
   { label: 'Connectivity',href: '#connectivity' },
   { label: 'Gallery',     href: '#gallery' },
@@ -55,10 +59,11 @@ export default function Navbar() {
           onClick={(e) => { e.preventDefault(); handleNavClick('#hero'); }}
           aria-label="Wood Breeze Home"
         >
-          <BrandMark size={48} />
+          
           <div className="navbar__logo-text">
-            <span className="navbar__logo-name">Wood Breeze</span>
-            <span className="navbar__logo-tagline">Mansanpally, Hyderabad</span>
+            <img src={Logo} className='logo' style={{width:"150px", height:"100px"}}/>
+
+            {/* <span className="navbar__logo-tagline">Mansanpally, Hyderabad</span> */}
           </div>
         </a>
 

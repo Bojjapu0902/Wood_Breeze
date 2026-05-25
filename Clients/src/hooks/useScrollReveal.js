@@ -17,24 +17,33 @@ export function useScrollReveal(options = {}) {
     const el = ref.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver((entries) => {
+    const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
         }
       });
     }, { ...defaultOptions, ...options });
 
-    // Observe all .reveal children
-    const targets = el.querySelectorAll('.reveal');
-    if (targets.length > 0) {
-      targets.forEach((t) => observer.observe(t));
-    } else {
-      // If the element itself has .reveal
-      if (el.classList.contains('reveal')) observer.observe(el);
-    }
+    // Observe all .reveal elements not yet visible
+    const observePending = () => {
+      el.querySelectorAll('.reveal:not(.is-visible)').forEach((t) => io.observe(t));
+      if (el.classList.contains('reveal') && !el.classList.contains('is-visible')) {
+        io.observe(el);
+      }
+    };
 
-    return () => observer.disconnect();
+    observePending();
+
+    // Re-observe whenever new .reveal nodes are added (tab/filter switches)
+    const mo = new MutationObserver(observePending);
+    mo.observe(el, { childList: true, subtree: true });
+
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
   }, []);
 
   return ref;

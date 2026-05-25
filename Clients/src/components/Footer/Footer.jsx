@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrandMark, BirdSilhouette } from '../../design-system/Birds';
+import { IconPhone, IconMail, IconMapPin } from '../../design-system/LineIcons';
 import './Footer.css';
 
 const QUICK_LINKS = [
@@ -114,15 +115,15 @@ export default function Footer() {
             <h3 className="footer__col-heading">Contact</h3>
             <ul role="list" className="footer__contact-list">
               <li>
-                <span aria-hidden="true">📞</span>
+                <span aria-hidden="true"><IconPhone size={15} /></span>
                 <a href="tel:+917661955553" className="footer__link">+91 76619 55553</a>
               </li>
               <li>
-                <span aria-hidden="true">✉️</span>
+                <span aria-hidden="true"><IconMail size={15} /></span>
                 <a href="mailto:info@woodbreeze.in" className="footer__link">info@woodbreeze.in</a>
               </li>
               <li>
-                <span aria-hidden="true">📍</span>
+                <span aria-hidden="true"><IconMapPin size={15} /></span>
                 <address style={{ fontStyle: 'normal' }} className="footer__address">
                   Blisscorp, The Executive Centre,<br />
                   Level 7, Unit 3B, Sattva Knowledge City,<br />

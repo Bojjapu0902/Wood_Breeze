@@ -1,0 +1,184 @@
+/* ── Connectivity ───────────────────────────────────────────── */
+.connectivity {
+  position: relative;
+  overflow: hidden;
+}
+
+.connectivity__birds {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.connectivity__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.connectivity__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-light);
+  color: var(--color-cream);
+  margin-bottom: 1.25rem;
+  line-height: var(--lh-snug);
+}
+
+.connectivity__title em {
+  font-style: italic;
+  color: var(--color-gold-light);
+}
+
+.connectivity__subtitle {
+  font-size: var(--fs-md);
+  line-height: var(--lh-relaxed);
+  color: rgba(250, 247, 240, 0.7);
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+/* ── Routes ─────────────────────────────────────────────────── */
+.connectivity__routes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-block: 3rem;
+}
+
+.connectivity__route {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(250, 247, 240, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(4px);
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    background var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+}
+
+.connectivity__route:hover {
+  transform: translateY(-3px);
+  background: rgba(201, 168, 76, 0.1);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+.connectivity__route-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.connectivity__route-info {
+  flex: 1;
+}
+
+.connectivity__route-dest {
+  font-family: var(--font-serif);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--color-cream);
+  line-height: 1.2;
+}
+
+.connectivity__route-via {
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: rgba(250, 247, 240, 0.45);
+  margin-top: 0.2rem;
+}
+
+.connectivity__route-time {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.connectivity__route-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-gold-light);
+  line-height: 1;
+}
+
+.connectivity__route-unit {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.7);
+}
+
+/* ── Nearby ─────────────────────────────────────────────────── */
+.connectivity__nearby {
+  margin-top: 3rem;
+}
+
+.connectivity__nearby-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-light);
+  color: var(--color-cream);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.connectivity__nearby-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.connectivity__nearby-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(250, 247, 240, 0.1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: rgba(250, 247, 240, 0.75);
+  background: rgba(250, 247, 240, 0.04);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.connectivity__nearby-item:hover {
+  background: rgba(250, 247, 240, 0.08);
+  color: var(--color-cream);
+  border-color: rgba(201, 168, 76, 0.25);
+}
+
+.connectivity__nearby-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .connectivity__routes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .connectivity__nearby-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .connectivity__routes {
+    grid-template-columns: 1fr;
+  }
+  .connectivity__nearby-grid {
+    grid-template-columns: 1fr;
+  }
+}

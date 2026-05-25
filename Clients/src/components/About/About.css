@@ -1,0 +1,192 @@
+/* ── About ──────────────────────────────────────────────────── */
+
+/* Intro split layout */
+.about__intro {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 6rem;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+/* Text */
+.about__headline { margin-bottom: 1.5rem; }
+.about__headline em {
+  font-style: italic;
+  color: var(--color-forest-mid);
+}
+
+.about__body {
+  font-size: var(--fs-md);
+  line-height: var(--lh-relaxed);
+  color: var(--color-brown-mid);
+  margin-bottom: 1.25rem;
+}
+
+.about__body em {
+  font-style: italic;
+  color: var(--color-forest);
+  font-family: var(--font-serif);
+}
+
+.about__quote {
+  font-family: var(--font-serif);
+  font-size: var(--fs-xl);
+  font-style: italic;
+  font-weight: var(--fw-light);
+  color: var(--color-forest);
+  line-height: var(--lh-snug);
+  margin-top: 1.5rem;
+}
+
+.about__quote-mark {
+  font-size: 1.5em;
+  color: var(--color-gold);
+  vertical-align: -0.2em;
+  margin-inline: 0.1em;
+}
+
+/* ── Visual Card ────────────────────────────────────────────── */
+.about__visual-card {
+  position: relative;
+  background: var(--color-forest-deep);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  padding: 3rem 2rem 2.5rem;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: var(--shadow-xl);
+}
+
+.about__visual-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0.4;
+}
+
+.about__visual-content {
+  position: relative;
+  z-index: 1;
+}
+
+.about__visual-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-cream);
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.about__visual-sub {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-sage-light);
+  margin-bottom: 1.5rem;
+}
+
+.about__visual-stats {
+  display: flex;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+.about__visual-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.about__visual-stats strong {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-gold-light);
+  line-height: 1;
+}
+
+.about__visual-stats span {
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: rgba(250, 247, 240, 0.5);
+}
+
+/* ── Pillars ────────────────────────────────────────────────── */
+.about__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.about__pillar {
+  padding: 2.5rem 2rem;
+  background: var(--color-parchment);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-beige);
+  transition:
+    transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+}
+
+.about__pillar:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-gold-light);
+}
+
+.about__pillar-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  line-height: 1;
+}
+
+.about__pillar-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  color: var(--color-brown-deep);
+  margin-bottom: 0.75rem;
+}
+
+.about__pillar-desc {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--color-brown-mid);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .about__intro {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about__pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about__pillars .about__pillar:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .about__pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .about__pillars .about__pillar:last-child {
+    grid-column: unset;
+  }
+}
